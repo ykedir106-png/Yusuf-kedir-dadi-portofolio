@@ -1,0 +1,2019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Yusuf Kedir Dadi | Portfolio</title>
+
+  <meta
+    name="description"
+    content="Yusuf Kedir Dadi - Personal Portfolio"
+  >
+
+  <!-- PWA -->
+  <meta name="theme-color" content="#0f172a">
+
+  <meta
+    name="mobile-web-app-capable"
+    content="yes"
+  >
+
+  <meta
+    name="apple-mobile-web-app-capable"
+    content="yes"
+  >
+
+  <link
+    rel="manifest"
+    href="manifest.json"
+  >
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    :root{
+      --bg:#f8fafc;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#64748b;
+      --primary:#2563eb;
+      --secondary:#7c3aed;
+      --border:#e2e8f0;
+      --shadow:0 15px 40px rgba(15,23,42,.10);
+    }
+
+    body.dark{
+      --bg:#020617;
+      --card:#0f172a;
+      --text:#f8fafc;
+      --muted:#94a3b8;
+      --border:#1e293b;
+      --shadow:0 15px 40px rgba(0,0,0,.35);
+    }
+
+    body{
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      transition:.3s;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    button{
+      font-family:inherit;
+    }
+
+    .container{
+      width:min(1100px,92%);
+      margin:auto;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    nav{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:1000;
+
+      background:rgba(255,255,255,.85);
+      backdrop-filter:blur(15px);
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+    body.dark nav{
+      background:rgba(2,6,23,.85);
+    }
+
+    .nav-inner{
+      height:70px;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo{
+      font-size:24px;
+      font-weight:900;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--primary),
+          var(--secondary)
+        );
+
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:25px;
+    }
+
+    .nav-links a{
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .nav-links a:hover{
+      color:var(--primary);
+    }
+
+    .nav-buttons{
+      display:flex;
+      gap:8px;
+    }
+
+    .icon-btn{
+      width:40px;
+      height:40px;
+
+      border:
+        1px solid var(--border);
+
+      background:var(--card);
+      color:var(--text);
+
+      border-radius:50%;
+      cursor:pointer;
+
+      font-size:18px;
+    }
+
+    .menu-btn{
+      display:none;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero{
+      min-height:100vh;
+
+      display:flex;
+      align-items:center;
+
+      padding-top:90px;
+    }
+
+    .hero-grid{
+      display:grid;
+
+      grid-template-columns:
+        1.15fr .85fr;
+
+      align-items:center;
+
+      gap:60px;
+    }
+
+    .badge{
+      display:inline-block;
+
+      padding:8px 14px;
+
+      border-radius:30px;
+
+      background:
+        rgba(37,99,235,.10);
+
+      color:var(--primary);
+
+      font-weight:bold;
+
+      font-size:14px;
+
+      margin-bottom:18px;
+    }
+
+    .hero h1{
+      font-size:
+        clamp(42px,7vw,78px);
+
+      line-height:1;
+
+      margin-bottom:20px;
+    }
+
+    .hero h1 span{
+      background:
+        linear-gradient(
+          90deg,
+          var(--primary),
+          var(--secondary)
+        );
+
+      -webkit-background-clip:text;
+
+      color:transparent;
+    }
+
+    .hero p{
+      color:var(--muted);
+
+      font-size:18px;
+
+      max-width:650px;
+
+      margin-bottom:30px;
+    }
+
+    .buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    .btn{
+      display:inline-flex;
+
+      align-items:center;
+      justify-content:center;
+
+      gap:8px;
+
+      padding:13px 22px;
+
+      border-radius:12px;
+
+      font-weight:700;
+
+      cursor:pointer;
+
+      transition:.25s;
+    }
+
+    .btn-primary{
+      border:none;
+
+      background:var(--primary);
+
+      color:white;
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-3px);
+    }
+
+    .btn-outline{
+      border:
+        1px solid var(--border);
+
+      background:transparent;
+
+      color:var(--text);
+    }
+
+    .btn-outline:hover{
+      border-color:var(--primary);
+
+      color:var(--primary);
+    }
+
+    /* =========================
+       PROFILE PHOTO
+    ========================= */
+
+    .profile-area{
+      display:flex;
+      justify-content:center;
+    }
+
+    .photo-wrapper{
+      width:320px;
+      height:320px;
+
+      position:relative;
+    }
+
+    .photo-wrapper::before{
+      content:"";
+
+      position:absolute;
+
+      inset:-12px;
+
+      border-radius:50%;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--secondary)
+        );
+
+      animation:
+        rotateBorder 7s linear infinite;
+    }
+
+    @keyframes rotateBorder{
+      to{
+        transform:rotate(360deg);
+      }
+    }
+
+    .profile-photo{
+      position:relative;
+
+      width:100%;
+      height:100%;
+
+      object-fit:cover;
+
+      border-radius:50%;
+
+      border:
+        8px solid var(--card);
+
+      background:var(--card);
+
+      z-index:2;
+    }
+
+    .photo-controls{
+      position:absolute;
+
+      bottom:-25px;
+      left:50%;
+
+      transform:
+        translateX(-50%);
+
+      display:flex;
+
+      gap:8px;
+
+      z-index:5;
+    }
+
+    .photo-controls button{
+      border:none;
+
+      padding:9px 13px;
+
+      border-radius:9px;
+
+      cursor:pointer;
+
+      background:var(--primary);
+
+      color:white;
+
+      font-weight:bold;
+    }
+
+    #photoInput{
+      display:none;
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    section{
+      padding:90px 0;
+    }
+
+    .section-title{
+      text-align:center;
+
+      margin-bottom:50px;
+    }
+
+    .section-title h2{
+      font-size:38px;
+
+      margin-bottom:8px;
+    }
+
+    .section-title p{
+      color:var(--muted);
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about-grid{
+      display:grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap:25px;
+    }
+
+    .card{
+      background:var(--card);
+
+      border:
+        1px solid var(--border);
+
+      border-radius:20px;
+
+      padding:30px;
+
+      box-shadow:var(--shadow);
+    }
+
+    .card h3{
+      margin-bottom:15px;
+    }
+
+    .card p{
+      color:var(--muted);
+    }
+
+    /* =========================
+       SKILLS
+    ========================= */
+
+    .skills{
+      display:grid;
+
+      grid-template-columns:
+        repeat(4,1fr);
+
+      gap:18px;
+    }
+
+    .skill{
+      background:var(--card);
+
+      border:
+        1px solid var(--border);
+
+      border-radius:16px;
+
+      padding:25px 15px;
+
+      text-align:center;
+    }
+
+    .skill-icon{
+      font-size:36px;
+
+      margin-bottom:10px;
+    }
+
+    .skill p{
+      color:var(--muted);
+
+      font-size:14px;
+    }
+
+    /* =========================
+       PROJECTS
+    ========================= */
+
+    .projects{
+      display:grid;
+
+      grid-template-columns:
+        repeat(3,1fr);
+
+      gap:20px;
+    }
+
+    .project{
+      background:var(--card);
+
+      border:
+        1px solid var(--border);
+
+      border-radius:18px;
+
+      overflow:hidden;
+
+      box-shadow:var(--shadow);
+
+      transition:.25s;
+    }
+
+    .project:hover{
+      transform:translateY(-6px);
+    }
+
+    .project-top{
+      height:150px;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      font-size:55px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #dbeafe,
+          #ede9fe
+        );
+    }
+
+    body.dark .project-top{
+      background:#1e293b;
+    }
+
+    .project-content{
+      padding:22px;
+    }
+
+    .project-content p{
+      color:var(--muted);
+
+      font-size:14px;
+
+      margin:8px 0 15px;
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact{
+      max-width:700px;
+
+      margin:auto;
+    }
+
+    .contact-list{
+      display:grid;
+
+      gap:14px;
+    }
+
+    .contact-item{
+      display:flex;
+
+      align-items:center;
+
+      gap:15px;
+
+      padding:18px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:14px;
+
+      background:var(--card);
+    }
+
+    .contact-icon{
+      width:45px;
+      height:45px;
+
+      display:grid;
+
+      place-items:center;
+
+      background:
+        rgba(37,99,235,.10);
+
+      border-radius:12px;
+
+      font-size:21px;
+    }
+
+    .contact-item small{
+      color:var(--muted);
+    }
+
+    /* =========================
+       WHATSAPP
+    ========================= */
+
+    .whatsapp-btn{
+      display:inline-flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      gap:9px;
+
+      padding:13px 22px;
+
+      border-radius:12px;
+
+      background:#25D366;
+
+      color:white;
+
+      font-weight:700;
+
+      box-shadow:
+        0 8px 22px
+        rgba(37,211,102,.25);
+
+      transition:.25s;
+    }
+
+    .whatsapp-btn:hover{
+      transform:translateY(-3px);
+    }
+
+    .whatsapp-float{
+      position:fixed;
+
+      right:20px;
+      bottom:20px;
+
+      width:58px;
+      height:58px;
+
+      display:grid;
+
+      place-items:center;
+
+      border-radius:50%;
+
+      background:#25D366;
+
+      color:white;
+
+      font-size:28px;
+
+      z-index:9999;
+
+      box-shadow:
+        0 8px 25px
+        rgba(0,0,0,.25);
+    }
+
+    /* =========================
+       INSTALL PROMPT
+    ========================= */
+
+    .install-prompt{
+      position:fixed;
+
+      left:50%;
+      bottom:20px;
+
+      transform:
+        translate(-50%,150%);
+
+      width:min(440px,92%);
+
+      display:flex;
+
+      align-items:center;
+
+      gap:15px;
+
+      padding:17px;
+
+      background:var(--card);
+
+      color:var(--text);
+
+      border:
+        1px solid var(--border);
+
+      border-radius:20px;
+
+      box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.25);
+
+      z-index:10000;
+
+      opacity:0;
+
+      transition:.45s;
+    }
+
+    .install-prompt.show{
+      transform:
+        translate(-50%,0);
+
+      opacity:1;
+    }
+
+    .install-icon{
+      width:52px;
+      height:52px;
+
+      min-width:52px;
+
+      display:grid;
+
+      place-items:center;
+
+      border-radius:15px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--secondary)
+        );
+
+      color:white;
+
+      font-size:25px;
+    }
+
+    .install-content{
+      flex:1;
+    }
+
+    .install-content strong{
+      display:block;
+
+      font-size:15px;
+
+      margin-bottom:3px;
+    }
+
+    .install-content p{
+      color:var(--muted);
+
+      font-size:12px;
+
+      margin-bottom:10px;
+    }
+
+    .install-actions{
+      display:flex;
+
+      gap:8px;
+    }
+
+    .install-now,
+    .install-later{
+      border:none;
+
+      padding:8px 14px;
+
+      border-radius:9px;
+
+      cursor:pointer;
+
+      font-weight:700;
+    }
+
+    .install-now{
+      background:var(--primary);
+
+      color:white;
+    }
+
+    .install-later{
+      background:var(--border);
+
+      color:var(--text);
+    }
+
+    .close-install{
+      position:absolute;
+
+      top:7px;
+      right:10px;
+
+      border:none;
+
+      background:transparent;
+
+      color:var(--muted);
+
+      font-size:22px;
+
+      cursor:pointer;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer{
+      padding:30px 0;
+
+      border-top:
+        1px solid var(--border);
+
+      text-align:center;
+
+      color:var(--muted);
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media(max-width:800px){
+
+      .nav-links{
+        position:absolute;
+
+        top:70px;
+        left:0;
+
+        width:100%;
+
+        background:var(--card);
+
+        border-bottom:
+          1px solid var(--border);
+
+        display:none;
+
+        flex-direction:column;
+
+        padding:20px;
+      }
+
+      .nav-links.show{
+        display:flex;
+      }
+
+      .menu-btn{
+        display:block;
+      }
+
+      .hero-grid{
+        grid-template-columns:1fr;
+
+        text-align:center;
+      }
+
+      .profile-area{
+        order:-1;
+      }
+
+      .photo-wrapper{
+        width:240px;
+        height:240px;
+      }
+
+      .hero p{
+        margin-left:auto;
+        margin-right:auto;
+      }
+
+      .buttons{
+        justify-content:center;
+      }
+
+      .about-grid{
+        grid-template-columns:1fr;
+      }
+
+      .skills{
+        grid-template-columns:
+          repeat(2,1fr);
+      }
+
+      .projects{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:420px){
+
+      .skills{
+        grid-template-columns:1fr;
+      }
+
+      .hero h1{
+        font-size:43px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVBAR
+  ========================= -->
+
+  <nav>
+
+    <div class="container nav-inner">
+
+      <a
+        href="#home"
+        class="logo"
+      >
+        YKD.
+      </a>
+
+      <div
+        class="nav-links"
+        id="navLinks"
+      >
+
+        <a href="#home">Home</a>
+
+        <a href="#about">About</a>
+
+        <a href="#skills">Skills</a>
+
+        <a href="#projects">Projects</a>
+
+        <a href="#contact">Contact</a>
+
+      </div>
+
+      <div class="nav-buttons">
+
+        <button
+          class="icon-btn"
+          id="themeBtn"
+          title="Dark Mode"
+        >
+          🌙
+        </button>
+
+        <button
+          class="icon-btn menu-btn"
+          id="menuBtn"
+        >
+          ☰
+        </button>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <section
+    class="hero"
+    id="home"
+  >
+
+    <div class="container hero-grid">
+
+      <div>
+
+        <div class="badge">
+          👋 Welcome to my portfolio
+        </div>
+
+        <h1>
+          I'm
+          <span>
+            Yusuf Kedir Dadi
+          </span>
+        </h1>
+
+        <p>
+          Web Developer, Programmer and
+          Technology Enthusiast.
+          I build modern websites,
+          Progressive Web Apps and
+          useful digital solutions.
+        </p>
+
+        <div class="buttons">
+
+          <a
+            href="#projects"
+            class="btn btn-primary"
+          >
+            🚀 My Projects
+          </a>
+
+          <a
+            href="#contact"
+            class="btn btn-outline"
+          >
+            📩 Contact Me
+          </a>
+
+          <a
+            href="https://wa.me/251XXXXXXXXX"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="whatsapp-btn"
+          >
+            💬 WhatsApp Me
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- PHOTO -->
+
+      <div class="profile-area">
+
+        <div class="photo-wrapper">
+
+          <img
+            id="profilePhoto"
+            class="profile-photo"
+            alt="Yusuf Kedir Dadi"
+          >
+
+          <div class="photo-controls">
+
+            <button
+              onclick="
+                document
+                .getElementById('photoInput')
+                .click()
+              "
+            >
+              📷 Photo
+            </button>
+
+            <button
+              onclick="removePhoto()"
+            >
+              🗑️
+            </button>
+
+          </div>
+
+          <input
+            type="file"
+            id="photoInput"
+            accept="image/*"
+          >
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       ABOUT
+  ========================= -->
+
+  <section id="about">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>
+          About Me
+        </h2>
+
+        <p>
+          Waa'ee koo
+        </p>
+
+      </div>
+
+      <div class="about-grid">
+
+        <div class="card">
+
+          <h3>
+            👨‍💻 Who I Am
+          </h3>
+
+          <p>
+            My name is
+            <strong>
+              Yusuf Kedir Dadi
+            </strong>.
+            I am interested in
+            programming, web development
+            and modern technology.
+            I enjoy creating websites
+            and applications.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>
+            🎯 My Goal
+          </h3>
+
+          <p>
+            My goal is to use technology
+            to solve real-world problems,
+            build useful digital products
+            and continuously improve
+            my programming skills.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       SKILLS
+  ========================= -->
+
+  <section id="skills">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>
+          My Skills
+        </h2>
+
+        <p>
+          Technologies I work with
+        </p>
+
+      </div>
+
+      <div class="skills">
+
+        <div class="skill">
+          <div class="skill-icon">🌐</div>
+          <h3>HTML</h3>
+          <p>Web Structure</p>
+        </div>
+
+        <div class="skill">
+          <div class="skill-icon">🎨</div>
+          <h3>CSS</h3>
+          <p>Responsive Design</p>
+        </div>
+
+        <div class="skill">
+          <div class="skill-icon">⚡</div>
+          <h3>JavaScript</h3>
+          <p>Web Interaction</p>
+        </div>
+
+        <div class="skill">
+          <div class="skill-icon">🐍</div>
+          <h3>Python</h3>
+          <p>Programming</p>
+        </div>
+
+        <div class="skill">
+          <div class="skill-icon">💻</div>
+          <h3>C++</h3>
+          <p>Programming</p>
+        </div>
+
+        <div class="skill">
+          <div class="skill-icon">☕</div>
+          <h3>Java</h3>
+          <p>Application Development</p>
+        </div>
+
+        <div class="skill">
+          <div class="skill-icon">📱</div>
+          <h3>PWA</h3>
+          <p>Progressive Web Apps</p>
+        </div>
+
+        <div class="skill">
+          <div class="skill-icon">🗄️</div>
+          <h3>Database</h3>
+          <p>Data Management</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       PROJECTS
+  ========================= -->
+
+  <section id="projects">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>
+          My Projects
+        </h2>
+
+        <p>
+          Hojiiwwan ani hojjedhe
+        </p>
+
+      </div>
+
+      <div class="projects">
+
+        <div class="project">
+
+          <div class="project-top">
+            🛒
+          </div>
+
+          <div class="project-content">
+
+            <h3>
+              Online Shopping
+            </h3>
+
+            <p>
+              Modern online shopping
+              website for products.
+            </p>
+
+            <a
+              href="#"
+              class="btn btn-primary"
+            >
+              View Project →
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="project">
+
+          <div class="project-top">
+            🐍
+          </div>
+
+          <div class="project-content">
+
+            <h3>
+              Snake Game PWA
+            </h3>
+
+            <p>
+              Mobile-friendly Snake Game
+              with PWA support.
+            </p>
+
+            <a
+              href="#"
+              class="btn btn-primary"
+            >
+              View Project →
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="project">
+
+          <div class="project-top">
+            🕌
+          </div>
+
+          <div class="project-content">
+
+            <h3>
+              Students Association
+            </h3>
+
+            <p>
+              Community website with
+              student features.
+            </p>
+
+            <a
+              href="#"
+              class="btn btn-primary"
+            >
+              View Project →
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       CONTACT
+  ========================= -->
+
+  <section id="contact">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>
+          Contact Me
+        </h2>
+
+        <p>
+          Na qunnami
+        </p>
+
+      </div>
+
+      <div class="contact">
+
+        <div class="contact-list">
+
+          <div class="contact-item">
+
+            <div class="contact-icon">
+              📧
+            </div>
+
+            <div>
+
+              <small>
+                Email
+              </small>
+
+              <h3>
+                your-email@example.com
+              </h3>
+
+            </div>
+
+          </div>
+
+
+          <div class="contact-item">
+
+            <div class="contact-icon">
+              📱
+            </div>
+
+            <div>
+
+              <small>
+                Phone
+              </small>
+
+              <h3>
+                +251 XXX XXX XXX
+              </h3>
+
+            </div>
+
+          </div>
+
+
+          <div class="contact-item">
+
+            <div class="contact-icon">
+              📍
+            </div>
+
+            <div>
+
+              <small>
+                Location
+              </small>
+
+              <h3>
+                Ethiopia
+              </h3>
+
+            </div>
+
+          </div>
+
+
+          <div
+            style="
+              text-align:center;
+              margin-top:10px;
+            "
+          >
+
+            <a
+              href="https://wa.me/251XXXXXXXXX"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="whatsapp-btn"
+            >
+              💬 Chat with me on WhatsApp
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="container">
+
+      <p>
+        © 2026
+        <strong>
+          Yusuf Kedir Dadi
+        </strong>.
+        All Rights Reserved.
+      </p>
+
+      <p>
+        Built with ❤️ using
+        HTML, CSS & JavaScript
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       FLOATING WHATSAPP
+  ========================= -->
+
+  <a
+    href="https://wa.me/251XXXXXXXXX"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="whatsapp-float"
+    aria-label="WhatsApp"
+  >
+    💬
+  </a>
+
+
+  <!-- =========================
+       PWA INSTALL PROMPT
+  ========================= -->
+
+  <div
+    id="installPrompt"
+    class="install-prompt"
+  >
+
+    <div class="install-icon">
+      📲
+    </div>
+
+    <div class="install-content">
+
+      <strong>
+        Install Yusuf Kedir Portfolio
+      </strong>
+
+      <p>
+        Portfolio koo akka appitti
+        phone kee irratti install godhi.
+      </p>
+
+      <div class="install-actions">
+
+        <button
+          id="installNow"
+          class="install-now"
+        >
+          Install
+        </button>
+
+        <button
+          id="installLater"
+          class="install-later"
+        >
+          Later
+        </button>
+
+      </div>
+
+    </div>
+
+    <button
+      id="closeInstall"
+      class="close-install"
+    >
+      ×
+    </button>
+
+  </div>
+
+
+  <script>
+
+    /* =========================
+       PHOTO LOCAL STORAGE
+    ========================= */
+
+    const photoInput =
+      document.getElementById(
+        "photoInput"
+      );
+
+    const profilePhoto =
+      document.getElementById(
+        "profilePhoto"
+      );
+
+    const savedPhoto =
+      localStorage.getItem(
+        "yusufProfilePhoto"
+      );
+
+
+    if(savedPhoto){
+
+      profilePhoto.src =
+        savedPhoto;
+
+    }else{
+
+      profilePhoto.src =
+        "data:image/svg+xml;charset=UTF-8," +
+        encodeURIComponent(`
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="500"
+            height="500"
+          >
+
+            <rect
+              width="500"
+              height="500"
+              fill="#e2e8f0"
+            />
+
+            <circle
+              cx="250"
+              cy="190"
+              r="90"
+              fill="#94a3b8"
+            />
+
+            <path
+              d="
+              M100 460
+              C110 340
+              180 300
+              250 300
+              C320 300
+              390 340
+              400 460Z"
+              fill="#94a3b8"
+            />
+
+            <text
+              x="250"
+              y="475"
+              text-anchor="middle"
+              font-family="Arial"
+              font-size="22"
+              fill="#475569"
+            >
+              Upload Photo
+            </text>
+
+          </svg>
+        `);
+
+    }
+
+
+    photoInput.addEventListener(
+      "change",
+      function(){
+
+        const file =
+          this.files[0];
+
+        if(!file) return;
+
+
+        if(
+          !file.type.startsWith(
+            "image/"
+          )
+        ){
+
+          alert(
+            "Please choose an image."
+          );
+
+          return;
+        }
+
+
+        const reader =
+          new FileReader();
+
+
+        reader.onload =
+          function(e){
+
+            const imageData =
+              e.target.result;
+
+
+            try{
+
+              localStorage.setItem(
+                "yusufProfilePhoto",
+                imageData
+              );
+
+              profilePhoto.src =
+                imageData;
+
+              alert(
+                "Photo saved successfully!"
+              );
+
+            }catch(error){
+
+              alert(
+                "Photo guddaa dha. " +
+                "Image xiqqaa filadhu."
+              );
+
+            }
+
+          };
+
+
+        reader.readAsDataURL(
+          file
+        );
+
+      }
+    );
+
+
+    function removePhoto(){
+
+      const confirmDelete =
+        confirm(
+          "Photo kee haquu barbaaddaa?"
+        );
+
+
+      if(!confirmDelete) return;
+
+
+      localStorage.removeItem(
+        "yusufProfilePhoto"
+      );
+
+
+      location.reload();
+
+    }
+
+
+    /* =========================
+       DARK MODE
+    ========================= */
+
+    const themeBtn =
+      document.getElementById(
+        "themeBtn"
+      );
+
+
+    const savedTheme =
+      localStorage.getItem(
+        "yusufTheme"
+      );
+
+
+    if(savedTheme === "dark"){
+
+      document.body
+        .classList
+        .add("dark");
+
+      themeBtn.textContent =
+        "☀️";
+
+    }
+
+
+    themeBtn.addEventListener(
+      "click",
+      function(){
+
+        document.body
+          .classList
+          .toggle("dark");
+
+
+        if(
+          document.body
+            .classList
+            .contains("dark")
+        ){
+
+          localStorage.setItem(
+            "yusufTheme",
+            "dark"
+          );
+
+          themeBtn.textContent =
+            "☀️";
+
+        }else{
+
+          localStorage.setItem(
+            "yusufTheme",
+            "light"
+          );
+
+          themeBtn.textContent =
+            "🌙";
+
+        }
+
+      }
+    );
+
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    const menuBtn =
+      document.getElementById(
+        "menuBtn"
+      );
+
+    const navLinks =
+      document.getElementById(
+        "navLinks"
+      );
+
+
+    menuBtn.addEventListener(
+      "click",
+      function(){
+
+        navLinks
+          .classList
+          .toggle("show");
+
+      }
+    );
+
+
+    document
+      .querySelectorAll(
+        ".nav-links a"
+      )
+      .forEach(
+        link => {
+
+          link.addEventListener(
+            "click",
+            function(){
+
+              navLinks
+                .classList
+                .remove("show");
+
+            }
+          );
+
+        }
+      );
+
+
+    /* =========================
+       SERVICE WORKER
+    ========================= */
+
+    if(
+      "serviceWorker"
+      in navigator
+    ){
+
+      window.addEventListener(
+        "load",
+        function(){
+
+          navigator.serviceWorker
+            .register(
+              "service-worker.js"
+            )
+            .then(
+              function(){
+
+                console.log(
+                  "Service Worker registered."
+                );
+
+              }
+            )
+            .catch(
+              function(error){
+
+                console.log(
+                  "Service Worker failed:",
+                  error
+                );
+
+              }
+            );
+
+        }
+      );
+
+    }
+
+
+    /* =========================
+       PWA INSTALL
+    ========================= */
+
+    let deferredInstallPrompt =
+      null;
+
+
+    const installPrompt =
+      document.getElementById(
+        "installPrompt"
+      );
+
+    const installNow =
+      document.getElementById(
+        "installNow"
+      );
+
+    const installLater =
+      document.getElementById(
+        "installLater"
+      );
+
+    const closeInstall =
+      document.getElementById(
+        "closeInstall"
+      );
+
+
+    window.addEventListener(
+      "beforeinstallprompt",
+      function(event){
+
+        event.preventDefault();
+
+        deferredInstallPrompt =
+          event;
+
+
+        setTimeout(
+          function(){
+
+            installPrompt
+              .classList
+              .add("show");
+
+          },
+          1500
+        );
+
+      }
+    );
+
+
+    installNow.addEventListener(
+      "click",
+      async function(){
+
+        if(
+          !deferredInstallPrompt
+        ){
+
+          return;
+
+        }
+
+
+        deferredInstallPrompt
+          .prompt();
+
+
+        const result =
+          await deferredInstallPrompt
+            .userChoice;
+
+
+        console.log(
+          "Install result:",
+          result.outcome
+        );
+
+
+        deferredInstallPrompt =
+          null;
+
+
+        installPrompt
+          .classList
+          .remove("show");
+
+      }
+    );
+
+
+    installLater.addEventListener(
+      "click",
+      function(){
+
+        installPrompt
+          .classList
+          .remove("show");
+
+      }
+    );
+
+
+    closeInstall.addEventListener(
+      "click",
+      function(){
+
+        installPrompt
+          .classList
+          .remove("show");
+
+      }
+    );
+
+
+    window.addEventListener(
+      "appinstalled",
+      function(){
+
+        console.log(
+          "PWA installed successfully!"
+        );
+
+
+        installPrompt
+          .classList
+          .remove("show");
+
+      }
+    );
+
+  </script>
+
+</body>
+  </html>
