@@ -1049,31 +1049,26 @@
             alt="Yusuf Kedir Dadi"
           >
 
-          <div class="photo-controls">
+  <div class="photo-controls">
 
-            <button
-              onclick="
-                document
-                .getElementById('photoInput')
-                .click()
-              "
-            >
-              📷 Photo
-            </button>
+  <button
+    onclick="
+      document
+      .getElementById('photoInput')
+      .click()
+    "
+  >
+    📷 Add Photos
+  </button>
 
-            <button
-              onclick="removePhoto()"
-            >
-              🗑️
-            </button>
+</div>
 
-          </div>
-
-          <input
-            type="file"
-            id="photoInput"
-            accept="image/*"
-          >
+<input
+  type="file"
+  id="photoInput"
+  accept="image/*"
+  multiple
+>
 
         </div>
 
